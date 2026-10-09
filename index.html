@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OKMAR - Ojek Murah</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f2f5f3;color:#222}
+header{background:#087b45;color:white;padding:25px 20px;border-radius:0 0 25px 25px}
+header h1{font-size:32px;margin:0}
+header p{margin-bottom:0}
+main{padding:18px;max-width:500px;margin:auto}
+.card{background:white;padding:20px;border-radius:18px;margin-bottom:18px;box-shadow:0 3px 12px #0000000d}
+h2{margin-top:0}
+label{display:block;margin-top:14px;font-weight:bold}
+input,select{width:100%;padding:14px;margin-top:7px;border:1px solid #ccc;border-radius:10px;font-size:16px;background:white}
+button{width:100%;padding:15px;background:#087b45;color:white;border:0;border-radius:10px;font-size:16px;font-weight:bold;margin-top:18px}
+#hasil{white-space:pre-line;line-height:1.6}
+footer{text-align:center;color:#777;font-size:13px;padding:15px}
+</style>
+</head>
+<body>
+<header>
+<h1>OKMAR 🛵</h1>
+<p>Ojek Murah, Cepat dan Aman</p>
+</header>
+<main>
+<div class="card">
+<h2>Pesan Layanan</h2>
+<label>Lokasi Penjemputan</label>
+<input id="asal" placeholder="Masukkan lokasi jemput">
+<label>Lokasi Tujuan</label>
+<input id="tujuan" placeholder="Masukkan lokasi tujuan">
+<label>Pilih Layanan</label>
+<select id="layanan">
+<option>Ojek Motor</option>
+<option>Antar Barang</option>
+<option>Pesan Makanan</option>
+</select>
+<button onclick="pesan()">PESAN SEKARANG</button>
+<p id="hasil"></p>
+</div>
+<div class="card">
+<h2>Customer Service</h2>
+<p>Email: anjangzloadingz@gmail.com</p>
+</div>
+</main>
+<footer>© 2026 OKMAR — Ojek Murah Indonesia</footer>
+<script>
+function pesan(){
+const asal=document.getElementById('asal').value.trim();
+const tujuan=document.getElementById('tujuan').value.trim();
+const layanan=document.getElementById('layanan').value;
+const hasil=document.getElementById('hasil');
+if(!asal||!tujuan){
+hasil.textContent='Silakan isi lokasi penjemputan dan tujuan.';
+return;
+}
+hasil.textContent='DEMO OKMAR\nLayanan: '+layanan+
+'\nPenjemputan: '+asal+
+'\nTujuan: '+tujuan+
+'\n\nPermintaan ini belum dikirim ke pengemudi. Sistem pemesanan online perlu dihubungkan.';
+}
+</script>
+</body>
+</html>

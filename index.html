@@ -1,78 +1,443 @@
+
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#087f5b"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png"><link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<meta name="description" content="OKMAr — ojek, kurir, pulsa dan layanan harian."><title>OKMAr — Layanan Harian</title>
-<style>
-:root{--green:#087f5b;--green2:#0aa879;--ink:#14251d;--muted:#687970;--bg:#f3f7f4;--line:#e0e9e3;--white:#fff;--pale:#e7f6ed;--shadow:0 10px 30px #143c2510}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);padding-bottom:82px}button,input,select,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}a{text-decoration:none;color:inherit}.wrap{width:min(1000px,92%);margin:auto}.header{background:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line)}.headin{height:65px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:9px;font-weight:950;font-size:23px;letter-spacing:-1px}.logoimg{height:42px;width:42px;object-fit:cover;border-radius:12px;border:1px solid #dceee3}.headright{display:flex;gap:8px;align-items:center}.iconbtn{border:1px solid var(--line);background:#fff;width:40px;height:40px;border-radius:13px;display:grid;place-items:center;font-size:19px;cursor:pointer}.profile{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--pale);color:var(--green);font-weight:900}.main{padding-top:18px}.greeting{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 16px}.greeting h1{font-size:25px;letter-spacing:-.7px;margin:0}.greeting p{font-size:13px;color:var(--muted);margin:3px 0 0}.wallet{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:15px;padding:10px 12px;font-size:12px;font-weight:800}.wallet b{color:var(--green);font-size:14px}.search{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);padding:12px 14px;border-radius:15px;margin-bottom:20px;color:var(--muted)}.search input{border:0;outline:0;width:100%;min-width:0;background:transparent;color:var(--ink)}.hero{background:linear-gradient(115deg,#075b42,#0b9167);color:#fff;border-radius:22px;padding:23px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;overflow:hidden;position:relative;box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;width:170px;height:170px;border:26px solid #ffffff15;border-radius:50%;right:-45px;top:-55px}.hero h2{font-size:24px;line-height:1.1;letter-spacing:-.7px;margin:0 0 8px;position:relative;z-index:1}.hero p{font-size:13px;color:#d5f4e5;margin:0;max-width:440px;position:relative;z-index:1}.heroicon{font-size:55px;position:relative;z-index:1}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin:25px 0 13px}.sectionhead h2{font-size:18px;margin:0;letter-spacing:-.3px}.sectionhead a{font-size:12px;color:var(--green);font-weight:800}.gridservices{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.svc{border:1px solid var(--line);background:#fff;border-radius:17px;padding:15px 5px 12px;text-align:center;cursor:pointer;box-shadow:0 2px 8px #14251d04}.svc .emoji{width:47px;height:47px;display:grid;place-items:center;border-radius:15px;margin:0 auto 8px;font-size:26px;background:#e6f6ec}.svc:nth-child(2) .emoji{background:#fff0df}.svc:nth-child(3) .emoji{background:#e9efff}.svc:nth-child(4) .emoji{background:#f5e9ff}.svc b{display:block;font-size:13px}.svc small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.promo{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:17px;padding:15px;margin-top:20px}.promoicon{font-size:31px;background:#fff2cf;border-radius:13px;padding:8px}.promo p{font-size:12px;color:var(--muted);margin:3px 0 0}.promo strong{font-size:14px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}.booking{margin-top:25px;scroll-margin-top:78px}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:17px}.tab{border:1px solid var(--line);background:#f6f9f7;border-radius:12px;padding:10px 3px;font-weight:800;color:#53645a;cursor:pointer}.tab.active{background:var(--pale);border-color:#84cba4;color:var(--green)}.field{margin-bottom:13px}.field label{display:block;font-size:12px;font-weight:850;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid #d6e2d9;border-radius:11px;padding:12px;background:#fcfefc;outline-color:var(--green);color:var(--ink)}.field textarea{min-height:68px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.gpsrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}.btn{display:inline-flex;justify-content:center;align-items:center;gap:7px;border:0;border-radius:12px;padding:12px 15px;font-weight:850;cursor:pointer}.primary{background:var(--green);color:#fff}.soft{background:var(--pale);color:var(--green)}.danger{background:#fff0f0;color:#b42318}.full{width:100%}.smallbtn{font-size:12px;padding:9px 11px}.muted{color:var(--muted);font-size:11px}.fare{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#eef8f1;border:1px solid #d9ecdf;border-radius:13px;padding:13px;margin:12px 0}.fare small{display:block;color:var(--muted);font-size:11px}.fare strong{color:var(--green);font-size:20px}.mapbox{height:160px;border-radius:14px;background:linear-gradient(135deg,#e4efe7,#f6f9f6);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;padding:15px;margin:12px 0;overflow:hidden;position:relative}.mapbox:before,.mapbox:after{content:"";position:absolute;background:#c8dfcf;height:1px;width:140%;transform:rotate(-22deg)}.mapbox:after{transform:rotate(30deg)}.mapcontent{z-index:1;background:#fff;border:1px solid var(--line);border-radius:13px;padding:10px 13px;box-shadow:var(--shadow);font-size:12px}.result{display:none;margin-top:15px;border:1px solid var(--line);border-radius:15px;padding:15px;background:#fbfdfb}.result.show{display:block}.orderline{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:12px}.orderline:last-child{border:0}.orderline b{text-align:right;overflow-wrap:anywhere}.notice{background:#fff5dc;border:1px solid #efdfb8;border-radius:12px;padding:11px;font-size:11px;color:#765719;margin-top:12px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}.feature{background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px}.feature span{font-size:24px}.feature b{display:block;font-size:13px;margin:7px 0 3px}.feature p{font-size:11px;color:var(--muted);margin:0}.bottomnav{position:fixed;z-index:20;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:8px 3% calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,1fr);box-shadow:0 -5px 20px #14251d08}.bottomnav a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#748178;font-weight:750}.bottomnav span{font-size:21px}.bottomnav a.active{color:var(--green)}.footer{text-align:center;color:var(--muted);font-size:11px;padding:24px 0 15px}.hidden{display:none!important}.history-panel{position:fixed;inset:0;z-index:100;background:var(--bg);overflow:auto;padding:20px 4% 35px}.history-inner{max-width:700px;margin:auto}.history-card{margin:12px 0}.status{display:inline-block;background:var(--pale);color:var(--green);padding:5px 9px;border-radius:9px;font-size:11px;font-weight:800}
-@media(min-width:760px){body{padding-bottom:0}.main{padding-top:26px}.hero{padding:30px}.hero h2{font-size:31px}.gridservices{grid-template-columns:repeat(4,minmax(120px,1fr));max-width:620px}.svc{padding:19px 10px}.bookinglayout{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px;align-items:start}.bookinginfo{position:sticky;top:90px}.bottomnav{display:none}.headin{height:72px}}
-@media(max-width:390px){.greeting h1{font-size:21px}.wallet{padding:8px;font-size:10px}.wallet b{font-size:12px}.gridservices{gap:7px}.svc{padding:12px 2px}.svc .emoji{width:40px;height:40px;font-size:23px}.svc b{font-size:12px}.hero{padding:18px}.hero h2{font-size:21px}.two{grid-template-columns:1fr}.features{grid-template-columns:1fr}}
-</style> 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#087f5b">
+  <title>OKMAr — Pesan Layanan</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: Arial, sans-serif;
+      background: #f3f7f5; color: #19342b;
+    }
+    header {
+      background: #087f5b; color: white;
+      padding: 24px 18px; text-align: center;
+    }
+    header h1 { margin: 0 0 8px; }
+    main { max-width: 680px; margin: auto; padding: 16px; }
+    .card {
+      background: white; padding: 18px; margin-bottom: 16px;
+      border-radius: 14px; box-shadow: 0 2px 10px #0000000c;
+    }
+    h2 { margin-top: 0; font-size: 20px; }
+    label { display: block; margin: 13px 0 6px; font-weight: bold; }
+    input, select, textarea {
+      width: 100%; padding: 12px; border: 1px solid #ccd8d2;
+      border-radius: 9px; font: inherit; background: white;
+    }
+    textarea { min-height: 75px; resize: vertical; }
+    .services { display: flex; gap: 8px; }
+    button {
+      padding: 12px 15px; border: 0; border-radius: 9px;
+      font: inherit; font-weight: bold; cursor: pointer;
+    }
+    .services button { flex: 1; background: #e5eee9; color: #19342b; }
+    .services button.active, .primary { background: #087f5b; color: white; }
+    .danger { background: #b42318; color: white; }
+    .secondary { background: #e5eee9; color: #19342b; }
+    .actions { display: flex; gap: 8px; margin-top: 16px; }
+    .actions button { flex: 1; }
+    .muted { color: #65766e; font-size: 13px; line-height: 1.5; }
+    .notice { padding: 11px; background: #edf6f0; border-radius: 8px; }
+    .order { border: 1px solid #dce6e0; padding: 13px; border-radius: 10px; margin-top: 12px; }
+    .order p { overflow-wrap: anywhere; line-height: 1.5; }
+    .hidden { display: none !important; }
+    button:disabled { opacity: .55; cursor: not-allowed; }
+  </style>
 </head>
 <body>
-<header class="header"><div class="wrap headin"><a href="#home" class="brand"><img class="logoimg" src="./icon-192.png" alt="Logo OKMAr"> OKMAr</a><div class="headright"><button class="iconbtn" aria-label="Cari layanan" onclick="document.getElementById('searchBox').focus()">⌕</button><button class="iconbtn" aria-label="Notifikasi" onclick="alert('Notifikasi akan aktif setelah backend dipasang.')">♧</button><div class="profile">O</div></div></div></header>
-<main class="wrap main" id="home">
-<div class="greeting"><div><h1>Halo, selamat datang 👋</h1><p>Mau ke mana atau butuh apa hari ini?</p></div><div class="wallet">Saldo demo <b>Rp0</b></div></div>
-<div class="search">⌕ <input id="searchBox" placeholder="Cari ojek, kurir, pulsa..." aria-label="Cari layanan"><span>☷</span></div>
-<section class="hero"><div><h2>Semua kebutuhan,<br>satu aplikasi.</h2><p>Perjalanan, kirim barang, dan isi ulang pulsa lebih praktis bersama OKMAr.</p></div><div class="heroicon">🛵</div></section>
-<div class="sectionhead" id="layanan"><h2>Layanan OKMAr</h2><a href="#pesan">Lihat semua ↓</a></div>
-<div class="gridservices"><button class="svc" data-kind="ojek"><span class="emoji">🏍️</span><b>Ojek</b><small>Antar jemput</small></button><button class="svc" data-kind="kurir"><span class="emoji">📦</span><b>Kurir</b><small>Kirim barang</small></button><button class="svc" data-kind="pulsa"><span class="emoji">📱</span><b>Pulsa & data</b><small>Isi ulang</small></button><button class="svc" data-kind="riwayat"><span class="emoji">🧾</span><b>Pesanan</b><small>Riwayat lokal</small></button></div>
-<div class="promo"><div class="promoicon">🎁</div><div><strong>Mulai dengan mudah</strong><p>Pilih layanan dan siapkan pesanan dari satu halaman.</p></div></div>
-<div class="sectionhead"><h2>Kenapa OKMAr?</h2></div><div class="features"><div class="feature"><span>📍</span><b>Lokasi GPS</b><p>Ambil titik lokasi dengan izin perangkat.</p></div><div class="feature"><span>🧮</span><b>Estimasi biaya</b><p>Lihat simulasi sebelum membuat draf.</p></div><div class="feature"><span>🧾</span><b>Ringkasan</b><p>Periksa rincian dan kode referensi.</p></div></div>
-<section class="booking" id="pesan"><div class="sectionhead"><h2>Buat pesanan</h2><span class="muted">Formulir OKMAr</span></div><div class="bookinglayout">
-<aside class="bookinginfo card"><div style="font-size:36px">🛵</div><h3 style="margin:6px 0">Pesan tanpa pindah aplikasi</h3><p class="muted">Lengkapi detail layanan, periksa perkiraan biaya, lalu tinjau ringkasan.</p><div class="mapbox"><div class="mapcontent">📍 <b>Lokasi Anda</b><br><span id="mapHint">GPS belum diambil</span></div></div><p class="muted">Peta titik dapat dibuka setelah GPS berhasil. Tampilan ini belum menunjukkan pengemudi secara langsung.</p></aside>
-<div class="card"><div class="tabs"><button class="tab active" data-tab="ojek">🏍️ Ojek</button><button class="tab" data-tab="kurir">📦 Kurir</button><button class="tab" data-tab="pulsa">📱 Pulsa</button></div>
-<form id="orderForm"><input type="hidden" id="kind" value="ojek">
-<div class="two"><div class="field"><label for="name">Nama</label><input id="name" required maxlength="80" autocomplete="name" placeholder="Nama pemesan"></div><div class="field"><label for="phone">Nomor HP</label><input id="phone" required maxlength="20" inputmode="tel" placeholder="08xxxxxxxxxx"></div></div>
-<div class="field"><label id="labelA" for="fieldA">Lokasi jemput</label><input id="fieldA" required maxlength="220" placeholder="Alamat / nama tempat"><div class="gpsrow"><button class="btn soft smallbtn" id="gpsBtn" type="button">📍 Gunakan GPS saya</button><a class="btn soft smallbtn hidden" id="mapLink" href="#" target="_blank" rel="noopener">Buka peta ↗</a></div><div class="muted" id="gpsStatus" role="status">GPS perlu izin lokasi dan website HTTPS.</div></div>
-<div class="field"><label id="labelB" for="fieldB">Tujuan perjalanan</label><input id="fieldB" required maxlength="220" placeholder="Alamat tujuan"></div>
-<div class="two"><div class="field hidden" id="operatorField"><label for="operator">Operator</label><select id="operator"><option value="">Pilih operator</option><option>Telkomsel</option><option>IM3</option><option>XL</option><option>Tri</option><option>Smartfren</option><option>by.U</option><option>Lainnya</option></select></div><div class="field hidden" id="amountField"><label for="amount">Nominal</label><select id="amount"><option value="">Pilih nominal</option><option value="5000">Rp5.000</option><option value="10000">Rp10.000</option><option value="15000">Rp15.000</option><option value="20000">Rp20.000</option><option value="25000">Rp25.000</option><option value="50000">Rp50.000</option><option value="100000">Rp100.000</option></select></div><div class="field" id="distanceField"><label for="distance">Perkiraan jarak (km)</label><input id="distance" type="number" min="1" max="100" step=".5" value="3"></div></div>
-<div class="field"><label for="paymentMethod">Metode pembayaran</label><select id="paymentMethod"><option value="Tunai saat layanan">Tunai saat layanan (paling mudah)</option><option value="Transfer / QRIS — konfirmasi manual">Transfer / QRIS (konfirmasi manual)</option></select><div class="muted">Pembayaran online otomatis belum aktif. Jangan transfer sebelum kanal pembayaran resmi OKMAr diumumkan.</div></div>
-<div class="field"><label for="notes">Catatan (opsional)</label><textarea id="notes" maxlength="400" placeholder="Patokan lokasi, detail paket, atau catatan"></textarea></div>
-<div class="fare"><div><b id="fareTitle">Estimasi tarif</b><small id="fareNote">Simulasi, bukan tarif resmi.</small></div><strong id="farePrice">Rp12.000</strong></div><button class="btn primary full" type="submit">Tinjau pesanan →</button><p class="muted">Jangan masukkan PIN, kata sandi, atau OTP.</p></form>
-<div class="result" id="result" aria-live="polite"><span style="font-size:10px;font-weight:900;color:var(--green)">RINGKASAN PESANAN</span><h3 style="margin:5px 0 8px">Periksa detail</h3><div id="summary"></div><div class="notice" id="notice">Draf ini hanya tersimpan di browser perangkat dan belum dikirim ke server.</div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn primary" id="confirmBtn" type="button">pesan sekarang</button><button class="btn soft" id="editBtn" type="button">ubah</button><button class="btn danger" id="cancelDraftBtn" type="button">cancel</button></div><p class="muted" id="confirmStatus"></p></div>
-</div></div></section>
-<div class="footer">OKMAr • Ojek · Kurir · Pulsa<br><a href="mailto:anjangzloadingz@gmail.com">anjangzloadingz@gmail.com</a><br>© <span id="year"></span> OKMAr</div></main>
-<nav class="bottomnav"><a class="active" href="#home"><span>⌂</span>Beranda</a><a href="#layanan"><span>▦</span>Layanan</a><a href="#pesan"><span>＋</span>Pesan</a><a href="#riwayat" id="historyNav"><span>▤</span>Pesanan</a></nav>
-<script>
-const supabase-url='https://yfivazonfodeijbofcqk.supabase.co/rest/v1/
-const SUPABASE_KEY ='sb_publishable_-Jkp4yNDxWeneEEHQDeGBA_Q-6zTM9W
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-async function ensureSupabaseLogin() {
-  const { data: sessionData } = await supabaseClient.auth.getSession();
+<header>
+  <h1>OKMAr</h1>
+  <div>Ojek • Kurir • Pulsa</div>
+</header>
 
-  if (!sessionData.session) {
-    const { error } = await supabaseClient.auth.signInAnonymously();
-    if (error) {
-      console.error('Login Supabase gagal:', error.message);
-      return false;
+<main>
+  <section class="card">
+    <h2>Pesan Layanan</h2>
+    <div class="services">
+      <button type="button" class="active" data-service="ojek">Ojek</button>
+      <button type="button" data-service="kurir">Kurir</button>
+      <button type="button" data-service="pulsa">Pulsa</button>
+    </div>
+
+    <form id="orderForm">
+      <label for="name" id="nameLabel">Nama pemesan</label>
+      <input id="name" maxlength="80" autocomplete="name" required>
+
+      <label for="phone" id="phoneLabel">Nomor HP pemesan</label>
+      <input id="phone" type="tel" maxlength="25" required>
+
+      <label for="fieldA" id="labelA">Lokasi jemput</label>
+      <input id="fieldA" maxlength="250" required>
+
+      <label for="fieldB" id="labelB">Tujuan</label>
+      <input id="fieldB" maxlength="250" required>
+
+      <div id="pulsaFields" class="hidden">
+        <label for="operator">Operator pulsa</label>
+        <select id="operator">
+          <option value="Telkomsel">Telkomsel</option>
+          <option value="Indosat">Indosat</option>
+          <option value="XL">XL</option>
+          <option value="Tri">Tri</option>
+          <option value="Smartfren">Smartfren</option>
+        </select>
+
+        <label for="amount">Nominal pulsa (Rp)</label>
+        <select id="amount">
+          <option value="5000">Rp5.000</option>
+          <option value="10000">Rp10.000</option>
+          <option value="20000">Rp20.000</option>
+          <option value="25000">Rp25.000</option>
+          <option value="50000">Rp50.000</option>
+          <option value="100000">Rp100.000</option>
+        </select>
+      </div>
+
+      <label for="notes">Catatan (opsional)</label>
+      <textarea id="notes" maxlength="500" placeholder="Catatan tambahan"></textarea>
+
+      <p class="muted notice" id="serviceNote">
+        Pastikan lokasi jemput dan tujuan sudah benar.
+      </p>
+
+      <div class="actions">
+        <button class="primary" id="submitBtn" type="submit">Pesan Sekarang</button>
+        <button class="secondary" id="resetBtn" type="button">Cancel</button>
+      </div>
+      <p id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Riwayat Pesanan</h2>
+    <button type="button" class="secondary" id="refreshBtn">Muat Ulang</button>
+    <p class="muted">Riwayat ditampilkan dari Supabase setelah Anda masuk dengan identitas pelanggan yang sama di perangkat ini.</p>
+    <p id="historyStatus" role="status" aria-live="polite"></p>
+    <div id="history"></div>
+  </section>
+
+  <p class="muted">
+    OKMAr belum otomatis menerima pembayaran atau menyediakan pengemudi.
+    Pesanan yang tersimpan di server belum berarti pengemudi sudah menerima pesanan.
+  </p>
+</main>
+
+<script>
+(() => {
+  'use strict';
+
+  // Ganti nilai di bawah dengan URL dan Publishable Key proyek Supabase Anda.
+  const SUPABASE_URL = 'https://yfivazonfodeijbofcqk.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_-Jkp4yNDxWeneEEHQDeGBA_Q-6zTM9W';
+
+  const $ = id => document.getElementById(id);
+  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  let customerId = null;
+  let service = 'ojek';
+  let busy = false;
+
+  function setStatus(id, message) {
+    $(id).textContent = message;
+  }
+
+  function rupiah(value) {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency', currency: 'IDR',
+      maximumFractionDigits: 0
+    }).format(Number(value) || 0);
+  }
+
+  function setBusy(value) {
+    busy = value;
+    $('submitBtn').disabled = value;
+    $('resetBtn').disabled = value;
+    $('refreshBtn').disabled = value;
+  }
+
+  async function login() {
+    setStatus('formStatus', 'Menghubungkan ke server...');
+    const { data: sessionData, error: sessionError } =
+      await client.auth.getSession();
+
+    if (sessionError) throw sessionError;
+
+    let user = sessionData.session?.user;
+
+    if (!user) {
+      const { data, error } = await client.auth.signInAnonymously();
+      if (error) throw error;
+      user = data.user;
+    }
+
+    if (!user) throw new Error('Identitas pelanggan tidak tersedia.');
+    customerId = user.id;
+    setStatus('formStatus', 'Terhubung. Silakan buat pesanan.');
+  }
+
+  function chooseService(next) {
+    service = next;
+
+    document.querySelectorAll('[data-service]').forEach(button => {
+      button.classList.toggle('active', button.dataset.service === service);
+    });
+
+    const pulsa = service === 'pulsa';
+    $('pulsaFields').classList.toggle('hidden', !pulsa);
+    $('name').required = !pulsa;
+    $('phone').required = !pulsa;
+    $('nameLabel').classList.toggle('hidden', pulsa);
+    $('name').classList.toggle('hidden', pulsa);
+    $('phoneLabel').classList.toggle('hidden', pulsa);
+    $('phone').classList.toggle('hidden', pulsa);
+
+    if (service === 'ojek') {
+      $('labelA').textContent = 'Lokasi jemput';
+      $('labelB').textContent = 'Tujuan perjalanan';
+      $('fieldA').placeholder = 'Alamat atau patokan jemput';
+      $('fieldB').placeholder = 'Alamat tujuan';
+      $('fieldB').required = true;
+      $('phoneLabel').textContent = 'Nomor HP pemesan';
+      $('serviceNote').textContent =
+        'Pastikan lokasi jemput dan tujuan sudah benar.';
+    } else if (service === 'kurir') {
+      $('labelA').textContent = 'Lokasi pengambilan barang';
+      $('labelB').textContent = 'Alamat penerima';
+      $('fieldA').placeholder = 'Alamat pengambilan barang';
+      $('fieldB').placeholder = 'Alamat penerima';
+      $('fieldB').required = true;
+      $('phoneLabel').textContent = 'Nomor HP pemesan';
+      $('serviceNote').textContent =
+        'Tuliskan alamat pengambilan dan penerima dengan lengkap.';
+    } else {
+      $('labelA').textContent = 'Nomor HP tujuan pulsa';
+      $('labelB').textContent = 'Keterangan paket (opsional)';
+      $('fieldA').placeholder = 'Nomor HP yang akan diisi';
+      $('fieldB').placeholder = 'Keterangan tambahan (boleh kosong)';
+      $('fieldB').required = false;
+      $('phoneLabel').textContent = 'Nomor HP pemesan';
+      $('serviceNote').textContent =
+        'Periksa nomor tujuan dan nominal sebelum memesan.';
     }
   }
 
-  return true;
-}
-const $=id=>document.getElementById(id);let activeKind='ojek',gpsPosition=null,currentOrder=null;
-function money(n){return new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n)}
-function getOrders(){try{const x=JSON.parse(localStorage.getItem('okmarOrders')||'[]');return Array.isArray(x)?x:[]}catch(e){return []}}
-function putOrders(orders){localStorage.setItem('okmarOrders',JSON.stringify(orders))}
-function choose(kind){if(kind==='riwayat'){showHistory();return}activeKind=kind;$('kind').value=kind;document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===kind));$('operatorField').classList.toggle('hidden',kind!=='pulsa');$('amountField').classList.toggle('hidden',kind!=='pulsa');$('distanceField').classList.toggle('hidden',kind==='pulsa');$('labelA').textContent=kind==='ojek'?'Lokasi jemput':kind==='kurir'?'Lokasi pengambilan barang':'Nomor HP tujuan';$('labelB').textContent=kind==='ojek'?'Tujuan perjalanan':kind==='kurir'?'Alamat penerima':'Jenis paket data (opsional)';$('fieldA').placeholder=kind==='ojek'?'Alamat atau patokan jemput':kind==='kurir'?'Alamat pengambilan barang':'08xxxxxxxxxx';$('fieldB').placeholder=kind==='ojek'?'Alamat tujuan':kind==='kurir'?'Alamat penerima dan detail paket':'Contoh: paket data 10 GB';$('fieldB').required=kind!=='pulsa';$('fieldA').type=kind==='pulsa'?'tel':'text';$('fareTitle').textContent=kind==='pulsa'?'Nominal isi ulang':'Estimasi tarif';$('result').classList.remove('show');calc()}
-function calc(){if(activeKind==='pulsa'){let n=Number($('amount').value||0);$('farePrice').textContent=n?money(n):'Pilih nominal';$('fareNote').textContent='Biaya admin dapat berlaku.';return}let km=Number($('distance').value||0),n=(activeKind==='ojek'?3000:4000)+km*(activeKind==='ojek'?3000:2500);$('farePrice').textContent=km>0?money(n):'Isi jarak';$('fareNote').textContent='Simulasi; bukan tarif resmi.'}
-document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>choose(b.dataset.tab)));document.querySelectorAll('[data-kind]').forEach(b=>b.addEventListener('click',()=>{choose(b.dataset.kind);$('pesan').scrollIntoView({behavior:'smooth'})}));$('distance').addEventListener('input',calc);$('amount').addEventListener('change',calc);
-$('searchBox').addEventListener('input',e=>{let q=e.target.value.toLowerCase();document.querySelectorAll('.svc').forEach(s=>s.classList.toggle('hidden',!s.innerText.toLowerCase().includes(q)))});
-$('gpsBtn').addEventListener('click',()=>{let s=$('gpsStatus'),btn=$('gpsBtn');if(!navigator.geolocation){s.textContent='Browser ini tidak mendukung GPS.';return}if(!window.isSecureContext){s.textContent='GPS membutuhkan HTTPS.';return}btn.disabled=true;btn.textContent='Mencari lokasi…';s.textContent='Meminta izin lokasi perangkat…';navigator.geolocation.getCurrentPosition(pos=>{gpsPosition={lat:pos.coords.latitude,lon:pos.coords.longitude,accuracy:Math.round(pos.coords.accuracy)};let c=`${gpsPosition.lat.toFixed(6)}, ${gpsPosition.lon.toFixed(6)}`;if(activeKind==='pulsa'){s.textContent='GPS berhasil diambil, tetapi layanan pulsa membutuhkan nomor HP.'}else{$('fieldA').value=`GPS ${c} (akurasi ±${gpsPosition.accuracy} m)`;s.textContent=`Lokasi didapat; akurasi perkiraan ±${gpsPosition.accuracy} m. Periksa peta sebelum melanjutkan.`}$('mapHint').textContent=c;$('mapLink').href=`https://www.openstreetmap.org/?mlat=${gpsPosition.lat}&mlon=${gpsPosition.lon}#map=17/${gpsPosition.lat}/${gpsPosition.lon}`;$('mapLink').classList.remove('hidden');btn.disabled=false;btn.textContent='📍 Perbarui GPS'},err=>{s.textContent=err.code===1?'Izin lokasi ditolak. Aktifkan izin lokasi untuk Safari di Pengaturan iPhone.':err.code===2?'Lokasi tidak tersedia. Coba di tempat terbuka.':'GPS terlalu lama merespons. Coba lagi.';btn.disabled=false;btn.textContent='📍 Coba GPS lagi'},{enableHighAccuracy:true,timeout:20000,maximumAge:10000})});
-$('orderForm').addEventListener('submit',e=>{e.preventDefault();if(activeKind==='pulsa'&&!$('amount').value){alert('Pilih nominal pulsa.');return}let a=$('fieldA').value.trim(),b=$('fieldB').value.trim();if(!a)return;let estimate=activeKind==='pulsa'?Number($('amount').value):(activeKind==='ojek'?3000:4000)+Number($('distance').value||0)*(activeKind==='ojek'?3000:2500);currentOrder={id:'OKM-'+Date.now().toString().slice(-8),kind:activeKind,name:$('name').value.trim(),phone:$('phone').value.trim(),a,b,operator:$('operator').value,amount:$('amount').value,notes:$('notes').value.trim(),paymentMethod:$('paymentMethod').value,estimate,gps:gpsPosition,status:'Draf'};renderSummary(currentOrder);$('confirmStatus').textContent='';$('confirmBtn').disabled=false;$('confirmBtn').textContent='Buat Pesanan';$('result').classList.add('show');$('result').scrollIntoView({behavior:'smooth',block:'center'})});
-function renderSummary(o){let rows=[['Kode',o.id],['Layanan',o.kind==='ojek'?'Ojek':o.kind==='kurir'?'Kurir':'Pulsa & data'],['Nama',o.name],['Nomor HP',o.phone],['Lokasi / nomor tujuan',o.a],['Tujuan / detail',o.b||'-']];if(o.kind==='pulsa')rows.push(['Operator',o.operator||'-'],['Nominal',money(Number(o.amount))]);else rows.push(['Jarak simulasi',(o.distance||$('distance').value||'-')+' km']);if(o.gps&&o.kind!=='pulsa')rows.push(['Koordinat GPS',`${o.gps.lat.toFixed(6)}, ${o.gps.lon.toFixed(6)}`]);rows.push(['Estimasi',money(o.estimate)],['Pembayaran',o.paymentMethod],['Catatan',o.notes||'-']);$('summary').replaceChildren();rows.forEach(([k,v])=>{let r=document.createElement('div');r.className='orderline';let l=document.createElement('span'),b=document.createElement('b');l.textContent=k;b.textContent=v;r.append(l,b);$('summary').append(r)})}
-$('confirmBtn').addEventListener('click',()=>{if(!currentOrder)return;try{let orders=getOrders();let existing=orders.findIndex(o=>o.id===currentOrder.id);if(existing>=0){if(orders[existing].status==='Dibatalkan'){alert('Draf ini sudah dibatalkan. Buat pesanan baru jika diperlukan.');return}orders[existing]={...orders[existing],...currentOrder,status:'Draf tersimpan di perangkat'}}else{orders.unshift({...currentOrder,status:'Draf tersimpan di perangkat'})}putOrders(orders.slice(0,100));$('confirmStatus').textContent=`Draf ${currentOrder.id} tersimpan di browser ini. Belum dikirim ke admin/pengemudi.`;$('confirmBtn').textContent='Tersimpan ✓';$('confirmBtn').disabled=true}catch(e){$('confirmStatus').textContent='Penyimpanan gagal. Periksa ruang browser lalu coba lagi.'}});
-$('editBtn').addEventListener('click',()=>{$('result').classList.remove('show');$('orderForm').scrollIntoView({behavior:'smooth'});$('confirmBtn').disabled=false});
-$('cancelDraftBtn').addEventListener('click',()=>{if(!currentOrder){$('result').classList.remove('show');return}if(!confirm('Batalkan draf '+currentOrder.id+'?'))return;try{let orders=getOrders(),idx=orders.findIndex(o=>o.id===currentOrder.id);if(idx>=0){orders[idx]={...orders[idx],status:'Dibatalkan'};putOrders(orders)}currentOrder=null;$('result').classList.remove('show');$('confirmStatus').textContent='';$('confirmBtn').disabled=false;$('orderForm').reset();gpsPosition=null;choose('ojek');$('mapHint').textContent='GPS belum diambil';$('mapLink').classList.add('hidden');$('gpsStatus').textContent='GPS perlu izin lokasi dan website HTTPS.'}catch(e){alert('Pembatalan gagal disimpan. Data belum diubah. Coba lagi.')}});
-function showHistory(){const old=$('historyPanel');if(old)old.remove();const panel=document.createElement('section');panel.id='historyPanel';panel.className='history-panel';const inner=document.createElement('div');inner.className='history-inner';const title=document.createElement('h2');title.textContent='Pesanan OKMAr';inner.append(title);const intro=document.createElement('p');intro.className='muted';intro.textContent='Daftar ini tersimpan di browser perangkat ini, bukan di server.';inner.append(intro);const close=document.createElement('button');close.className='btn soft';close.textContent='Tutup';close.onclick=()=>panel.remove();inner.append(close);const orders=getOrders();if(!orders.length){const p=document.createElement('p');p.textContent='Belum ada draf tersimpan pada browser ini.';inner.append(p)}orders.forEach(o=>{const card=document.createElement('article');card.className='card history-card';const h=document.createElement('h3');h.textContent=o.id||'Pesanan';card.append(h);const st=document.createElement('p');st.className='status';st.textContent=o.status||'Draf';card.append(st);const desc=document.createElement('p');desc.textContent=(o.kind||'Layanan').toUpperCase()+' · '+(o.name||'Tanpa nama')+' · '+money(Number(o.estimate||0));card.append(desc);if(o.a){const loc=document.createElement('p');loc.className='muted';loc.textContent='Detail: '+o.a+(o.b?' → '+o.b:'');card.append(loc)}if(o.status!=='Dibatalkan'){const cancel=document.createElement('button');cancel.className='btn danger';cancel.textContent='Cancel pesanan';cancel.onclick=()=>{if(!confirm('Batalkan pesanan '+o.id+'? Status akan diubah menjadi Dibatalkan.'))return;try{const latest=getOrders();const i=latest.findIndex(x=>x.id===o.id);if(i<0){alert('Pesanan tidak ditemukan.');return}if(latest[i].status==='Dibatalkan'){alert('Pesanan ini sudah dibatalkan.');return}latest[i]={...latest[i],status:'Dibatalkan'};putOrders(latest);showHistory()}catch(e){alert('Pembatalan gagal disimpan. Coba lagi.')}};card.append(cancel)}else{const msg=document.createElement('p');msg.className='muted';msg.textContent='Pesanan ini sudah dibatalkan.';card.append(msg)}inner.append(card)});panel.append(inner);document.body.append(panel)}
-document.querySelectorAll('[data-kind]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.kind==='riwayat')showHistory()}));
-$('historyNav').addEventListener('click',e=>{e.preventDefault();showHistory()});$('year').textContent=new Date().getFullYear();
-if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-ensureSupabaseLogin();
+  document.querySelectorAll('[data-service]').forEach(button => {
+    button.addEventListener('click', () => chooseService(button.dataset.service));
+  });
+
+  $('orderForm').addEventListener('submit', async event => {
+    event.preventDefault();
+    if (busy) return;
+
+    if (!customerId) {
+      setStatus('formStatus', 'Belum terhubung ke server. Muat ulang halaman.');
+      return;
+    }
+
+    const a = $('fieldA').value.trim();
+    const b = $('fieldB').value.trim();
+
+    if (!a || (service !== 'pulsa' && !b)) {
+      setStatus('formStatus', 'Lengkapi data pesanan terlebih dahulu.');
+      return;
+    }
+
+    if (service === 'pulsa' && !/^[0-9+\-\s]{8,25}$/.test(a)) {
+      setStatus('formStatus', 'Periksa nomor HP tujuan pulsa.');
+      return;
+    }
+
+    const orderCode = 'OKM-' + Date.now().toString(36).toUpperCase();
+
+    const details = {
+      name: $('name').value.trim(),
+      phone: $('phone').value.trim(),
+      location_or_phone: a,
+      destination_or_package: b,
+      operator: service === 'pulsa' ? $('operator').value : null,
+      amount: service === 'pulsa' ? Number($('amount').value) : null,
+      notes: $('notes').value.trim()
+    };
+
+    setBusy(true);
+    setStatus('formStatus', 'Mengirim pesanan ke server...');
+
+    try {
+      const { data, error } = await client
+        .from('okmar_orders')
+        .insert({
+          order_code: orderCode,
+          customer_id: customerId,
+          driver_id: null,
+          service_type: service,
+          status: 'Menunggu',
+          details
+        })
+        .select('id, order_code, status')
+        .single();
+
+      if (error) throw error;
+
+      setStatus(
+        'formStatus',
+        'Pesanan ' + data.order_code + ' berhasil disimpan di server. Status: ' + data.status + '.'
+      );
+      $('orderForm').reset();
+      chooseService('ojek');
+      await loadHistory();
+    } catch (error) {
+      console.error(error);
+      setStatus(
+        'formStatus',
+        'Pesanan gagal dikirim: ' + (error.message || 'Terjadi kesalahan.')
+      );
+    } finally {
+      setBusy(false);
+    }
+  });
+
+  $('resetBtn').addEventListener('click', () => {
+    if (busy) return;
+    $('orderForm').reset();
+    chooseService('ojek');
+    setStatus('formStatus', 'Formulir dikosongkan. Belum ada pesanan yang dibuat.');
+  });
+
+  function addText(parent, tag, text, className) {
+    const element = document.createElement(tag);
+    element.textContent = text;
+    if (className) element.className = className;
+    parent.appendChild(element);
+    return element;
+  }
+
+  async function cancelOrder(order) {
+    if (busy || order.status !== 'Menunggu') return;
+
+    if (!confirm('Batalkan pesanan ' + order.order_code + '?')) return;
+
+    setBusy(true);
+    setStatus('historyStatus', 'Memproses pembatalan...');
+
+    try {
+      const { data, error } = await client
+        .from('okmar_orders')
+        .update({
+          status: 'Dibatalkan',
+          cancelled_at: new Date().toISOString(),
+          cancellation_note: 'Dibatalkan oleh pelanggan',
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', order.id)
+        .eq('customer_id', customerId)
+        .eq('status', 'Menunggu')
+        .select('id');
+
+      if (error) throw error;
+      if (!data || data.length === 0) {
+        throw new Error('Pesanan tidak berubah. Periksa status dan izin Supabase.');
+      }
+
+      setStatus('historyStatus', 'Pesanan berhasil dibatalkan.');
+      await loadHistory();
+    } catch (error) {
+      console.error(error);
+      setStatus('historyStatus', 'Pembatalan gagal: ' + (error.message || 'Kesalahan server.'));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function loadHistory() {
+    if (!customerId) return;
+    setStatus('historyStatus', 'Memuat riwayat...');
+    $('history').replaceChildren();
+
+    try {
+      const { data, error } = await client
+        .from('okmar_orders')
+        .select('id, order_code, service_type, status, details, created_at, cancelled_at')
+        .eq('customer_id', customerId)
+        .order('created_at', { ascending: false })
+        .limit(50);
+
+      if (error) throw error;
+
+      if (!data || data.length === 0) {
+        setStatus('historyStatus', 'Belum ada pesanan.');
+        return;
+      }
+
+      setStatus('historyStatus', 'Menampilkan ' + data.length + ' pesanan.');
+
+      data.forEach(order => {
+        const card = document.createElement('article');
+        card.className = 'order';
+        const details = order.details || {};
+
+        addText(card, 'strong', order.order_code);
+        addText(card, 'p', 'Layanan: ' + order.service_type);
+        addText(card, 'p', 'Status: ' + order.status);
+        addText(card, 'p', 'Nama: ' + (details.name || '-'));
+        addText(card, 'p', 'Nomor tujuan/lokasi: ' + (details.location_or_phone || '-'));
+
+        if (details.destination_or_package) {
+          addText(card, 'p', 'Tujuan/keterangan: ' + details.destination_or_package);
+        }
+        if (details.operator) addText(card, 'p', 'Operator: ' + details.operator);
+        if (details.amount) addText(card, 'p', 'Nominal: ' + rupiah(details.amount));
+        if (details.notes) addText(card, 'p', 'Catatan: ' + details.notes);
+
+        addText(card, 'p',
+          'Dibuat: ' + new Date(order.created_at).toLocaleString('id-ID'));
+
+        if (order.cancelled_at) {
+          addText(card, 'p',
+            'Dibatalkan: ' + new Date(order.cancelled_at).toLocaleString('id-ID'));
+        }
+
+        if (order.status === 'Menunggu') {
+          const cancelButton = document.createElement('button');
+          cancelButton.type = 'button';
+          cancelButton.className = 'danger';
+          cancelButton.textContent = 'Cancel';
+          cancelButton.addEventListener('click', () => cancelOrder(order));
+          card.appendChild(cancelButton);
+        }
+
+        $('history').appendChild(card);
+      });
+    } catch (error) {
+      console.error(error);
+      setStatus('historyStatus',
+        'Riwayat gagal dimuat: ' + (error.message || 'Kesalahan server.'));
+    }
+  }
+
+  $('refreshBtn').addEventListener('click', loadHistory);
+
+  async function start() {
+    try {
+      if (SUPABASE_KEY === 'TEMPEL_PUBLISHABLE_KEY_LENGKAP_DI_SINI') {
+        throw new Error('Masukkan Publishable Key Supabase Anda pada kode.');
+      }
+      await login();
+      await loadHistory();
+    } catch (error) {
+      console.error(error);
+      setStatus('formStatus',
+        'Koneksi gagal: ' + (error.message || 'Periksa konfigurasi Supabase.'));
+    }
+  }
+
+  chooseService('ojek');
+  start();
+})();
 </script>
-</body></html>
+</body>
+</html>
